@@ -1,7 +1,6 @@
 package com.olivia.weatherapp.domain.repository
 
-import com.olivia.weatherapp.data.retrofit.response.LocationResponseData
-import com.olivia.weatherapp.data.retrofit.response.LocationSearchResponseData
+import com.olivia.weatherapp.domain.model.LocationModel
 
 /**
  * # WeatherApp
@@ -10,6 +9,6 @@ import com.olivia.weatherapp.data.retrofit.response.LocationSearchResponseData
  * @since 2022-05-03
  */
 interface WeatherRepository {
-    suspend fun requestLocationSearch(query: String): LocationSearchResponseData
-    suspend fun requestLocation(woeid: String): LocationResponseData
+    suspend fun requestLocationSearch(query: String): List<Int>
+    suspend fun requestLocation(woeid: Int): LocationModel
 }
