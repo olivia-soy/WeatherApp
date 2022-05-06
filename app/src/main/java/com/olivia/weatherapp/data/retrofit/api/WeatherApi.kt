@@ -15,12 +15,12 @@ import retrofit2.http.Query
  */
 interface WeatherApi {
 
-    @POST("/location/search")
+    @POST("/api/location/search")
     suspend fun locationSearch(
         @Query("query") query: String
     ): LocationSearchResponseData
 
-    @GET("/location/{woeid}")
+    @GET("/api/location/{woeid}")
     suspend fun location(
         @Path("woeid") woeid: String
     ): LocationResponseData

@@ -21,7 +21,7 @@ object RetrofitModule {
     @Provides
     @Singleton
     fun provideWeatherApi(): WeatherApi = Retrofit.Builder()
-        .baseUrl("https://www.metaweather.com/api/")
+        .baseUrl("https://www.metaweather.com")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create(WeatherApi::class.java)
