@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@{model.the_temp}"
-            android:textColor="@color/red"
+            android:textColor="@color/main"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/tvHumidity"
             app:layout_constraintStart_toEndOf="@id/guideline"
