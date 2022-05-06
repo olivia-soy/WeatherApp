@@ -1,6 +1,5 @@
 package com.olivia.weatherapp.presentation
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.olivia.weatherapp.domain.model.LocationModel
