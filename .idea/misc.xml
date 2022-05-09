@@ -4,8 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/item_weather.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/item_weather_consolidated.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_weather.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_weather_consolidated.xml" value="0.6992257690429687" />
         <entry key="app/src/main/res/layout/item_weather_header.xml" value="0.165" />
       </map>
     </option>
@@ -15,5 +15,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.6992257690429687" />
+      </ProjectState>
+    </option>
   </component>
 </project>

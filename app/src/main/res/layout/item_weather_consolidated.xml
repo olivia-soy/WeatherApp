@@ -5,58 +5,71 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp">
 
         <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
             app:imagePath="@{model.weather_image_url}"
-            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintEnd_toStartOf="@+id/glVertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvName"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
             android:text="@{model.weather_state_name}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:textColor="@color/dark_gray"
+            app:layout_constraintBottom_toTopOf="@id/glHorizontal"
+            app:layout_constraintStart_toEndOf="@id/glVertical"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="NAME" />
 
         <TextView
             android:id="@+id/tvTemp"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
             android:text="@{model.the_temp}"
             android:textColor="@color/main"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvHumidity"
-            app:layout_constraintStart_toEndOf="@id/guideline"
-            app:layout_constraintTop_toBottomOf="@id/tvName"
-            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintStart_toEndOf="@id/glVertical"
+            app:layout_constraintTop_toBottomOf="@id/glHorizontal"
             tools:text="TEMP" />
 
         <TextView
             android:id="@+id/tvHumidity"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginStart="10dp"
+            android:gravity="start"
             android:text="@{model.humidity}"
+            android:textColor="@color/dark_gray"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvTemp"
-            app:layout_constraintTop_toBottomOf="@id/tvName"
-            app:layout_constraintWidth_percent="0.3"
+            app:layout_constraintTop_toBottomOf="@id/glHorizontal"
             tools:text="HUMIDITY" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
+            android:id="@+id/glHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glVertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
