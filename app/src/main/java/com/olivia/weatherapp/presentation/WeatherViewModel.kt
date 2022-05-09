@@ -41,12 +41,12 @@ class WeatherViewModel @Inject constructor(
             val response = withContext(Dispatchers.IO) {
                 repository.requestLocationSearch("se")
             }
-            val list = arrayListOf<LocationModel>()
-            response.map {
-                async(Dispatchers.IO) {
-                    list.add(repository.requestLocation(it))
-                }
-            }.awaitAll()
+
+            val list = withContext(Dispatchers.IO) {
+                response.map {
+                    async(Dispatchers.IO) { repository.requestLocation(it) }
+                }.awaitAll()
+            }
 
             _weatherList.value = list
             _dataLoading.value = false
