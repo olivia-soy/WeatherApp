@@ -37,7 +37,7 @@ class WeatherAdapter : ListAdapter<ListItem, RecyclerView.ViewHolder>(
                     )
                 )
             }
-            ITEM_VIEW_TYPE_ITEM -> {
+            else -> {
                 WeatherViewHolder(
                     ItemWeatherBinding.inflate(
                         LayoutInflater.from(parent.context),
@@ -46,7 +46,6 @@ class WeatherAdapter : ListAdapter<ListItem, RecyclerView.ViewHolder>(
                     )
                 )
             }
-            else -> throw ClassCastException("Unknown viewType $viewType")
         }
     }
 
@@ -98,17 +97,17 @@ class WeatherAdapter : ListAdapter<ListItem, RecyclerView.ViewHolder>(
 }
 
 sealed class ListItem {
-    abstract val id: Long
+    abstract val id: Int
 
     data class DataItem(
         val locationModel: LocationModel
     ) : ListItem() {
-        override val id: Long
+        override val id: Int
             get() = locationModel.id
     }
 
     object HeaderItem : ListItem() {
-        override val id: Long
-            get() = 0L
+        override val id: Int
+            get() = 0
     }
 }

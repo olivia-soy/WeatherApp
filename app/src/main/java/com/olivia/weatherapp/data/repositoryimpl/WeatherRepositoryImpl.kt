@@ -23,7 +23,7 @@ class WeatherRepositoryImpl @Inject constructor(
     override suspend fun requestLocation(woeid: Int): LocationModel {
         val response = weatherApi.location(woeid.toString())
         return LocationModel(
-            id = response.woeid.toLong(),
+            id = response.woeid,
             title = response.title,
             todayWeather = response.consolidated_weather.getOrNull(0)?.toConsolidatedWeatherModel(),
             tomorrowWeather = response.consolidated_weather.getOrNull(1)
