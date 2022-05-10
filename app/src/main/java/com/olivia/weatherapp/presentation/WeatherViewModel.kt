@@ -32,28 +32,45 @@ class WeatherViewModel @Inject constructor(
         get() = _dataLoading
 
     init {
-        requestWeatherList()
+        requestWeatherSearch()
     }
 
-    private fun requestWeatherList() {
+    private fun requestWeatherSearch() {
         viewModelScope.launch {
             _dataLoading.value = true
             val response = withContext(Dispatchers.IO) {
-                repository.requestLocationSearch("se")
+                try {
+                    repository.requestLocationSearch(location_query)
+                } catch (e: Exception) {
+                    null
+                }
             }
 
-            val list = withContext(Dispatchers.IO) {
-                response.map {
-                    async(Dispatchers.IO) { repository.requestLocation(it) }
-                }.awaitAll()
+            if (!response.isNullOrEmpty()) {
+                _weatherList.value = requestWeatherLocation(response)
             }
 
-            _weatherList.value = list
             _dataLoading.value = false
         }
     }
 
+    private suspend fun requestWeatherLocation(idList: List<Int>) = withContext(Dispatchers.IO) {
+        idList.map {
+            async {
+                try {
+                    repository.requestLocation(it)
+                } catch (e: Exception) {
+                    LocationModel()
+                }
+            }
+        }.awaitAll()
+    }
+
     fun refresh() {
-        requestWeatherList()
+        requestWeatherSearch()
+    }
+
+    companion object {
+        private const val location_query = "se"
     }
 }
