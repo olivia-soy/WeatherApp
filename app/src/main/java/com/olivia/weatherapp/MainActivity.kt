@@ -1,5 +1,6 @@
 package com.olivia.weatherapp
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -38,21 +39,26 @@ class MainActivity : AppCompatActivity() {
         setupViewModel()
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun setupBinding() {
-        val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        val dividerItemDecoration =
+            DividerItemDecoration(this, DividerItemDecoration.VERTICAL).apply {
+                setDrawable(resources.getDrawable(R.drawable.v_line, null))
+            }
         binding.recycler.addItemDecoration(dividerItemDecoration)
         binding.recycler.adapter = weatherAdapter
+
     }
 
     private fun setupViewModel() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.weatherList.collect { list ->
-                    val items = when (list.isEmpty()) {
-                        true -> listOf(ListItem.HeaderItem)
-                        false -> listOf(ListItem.HeaderItem) + list.map { ListItem.DataItem(it) }
+                    if (list.isNotEmpty()) {
+                        val items =
+                            listOf(ListItem.HeaderItem) + list.map { ListItem.DataItem(it) }
+                        weatherAdapter.submitList(items)
                     }
-                    weatherAdapter.submitList(items)
                 }
             }
         }

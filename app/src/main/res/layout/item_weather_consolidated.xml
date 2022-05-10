@@ -13,23 +13,25 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitXY"
             app:imagePath="@{model.weather_image_url}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/glVertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginHorizontal="10dp"
             android:gravity="start"
             android:text="@{model.weather_state_name}"
-            android:textColor="@color/dark_gray"
-            app:layout_constraintBottom_toTopOf="@id/glHorizontal"
+            android:textColor="@color/content"
+            app:layout_constraintBottom_toTopOf="@id/tvTemp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/glVertical"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="NAME" />
 
         <TextView
@@ -44,29 +46,22 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/tvHumidity"
             app:layout_constraintStart_toEndOf="@id/glVertical"
-            app:layout_constraintTop_toBottomOf="@id/glHorizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
             tools:text="TEMP" />
 
         <TextView
             android:id="@+id/tvHumidity"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginHorizontal="10dp"
             android:gravity="start"
             android:text="@{model.humidity}"
-            android:textColor="@color/dark_gray"
+            android:textColor="@color/content"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvTemp"
-            app:layout_constraintTop_toBottomOf="@id/glHorizontal"
+            app:layout_constraintTop_toTopOf="@id/tvTemp"
             tools:text="HUMIDITY" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/glHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/glVertical"

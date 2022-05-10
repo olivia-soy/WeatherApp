@@ -7,6 +7,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvId"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/tvId"
             android:layout_width="0dp"
@@ -18,27 +26,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="0.1"
-            tools:text="ID" />
+            tools:text="LOCAL" />
 
-        <include
-            android:id="@+id/vTomorrow"
-            layout="@layout/item_weather_consolidated"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvId"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/vToday"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_percent="0.45"
-            app:model="@{model.tomorrowWeather}" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/vToday"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <include
             android:id="@+id/vToday"
             layout="@layout/item_weather_consolidated"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="@+id/tvId"
             app:layout_constraintEnd_toStartOf="@+id/vTomorrow"
             app:layout_constraintStart_toEndOf="@+id/tvId"
@@ -46,6 +48,34 @@
             app:layout_constraintWidth_percent="0.45"
             app:model="@{model.todayWeather}" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/vTomorrow"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <include
+            android:id="@+id/vTomorrow"
+            layout="@layout/item_weather_consolidated"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tvId"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/vToday"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.45"
+            app:model="@{model.tomorrowWeather}" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:background="@color/line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/vTomorrow"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
