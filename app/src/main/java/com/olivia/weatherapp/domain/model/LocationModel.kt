@@ -8,8 +8,8 @@ package com.olivia.weatherapp.domain.model
  */
 
 data class LocationModel(
-    val id: Int,
-    val title: String,
-    val todayWeather: ConsolidatedWeatherModel?,
-    val tomorrowWeather: ConsolidatedWeatherModel?
+    val id: Int = 0,
+    val title: String = "",
+    val todayWeather: ConsolidatedWeatherModel? = null,
+    val tomorrowWeather: ConsolidatedWeatherModel? = null
 )

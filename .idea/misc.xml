@@ -3,6 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/LEESOYOUNG/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/v_line.xml" value="0.3805" />
+        <entry key="..\:/Users/LEESOYOUNG/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/vertical_line.xml" value="0.3805" />
+        <entry key="..\:/Users/LEESOYOUNG/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/LEESOYOUNG/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/item_weather.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/LEESOYOUNG/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/item_weather_consolidated.xml" value="0.39719202898550726" />
+        <entry key="..\:/Users/LEESOYOUNG/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/item_weather_header.xml" value="0.3428442028985507" />
+        <entry key="..\:/Users/LEESOYOUNG/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/v_line.xml" value="0.39719202898550726" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_weather.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_weather_consolidated.xml" value="0.6992257690429687" />
