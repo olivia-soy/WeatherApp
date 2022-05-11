@@ -2,12 +2,14 @@ package com.olivia.weatherapp.presentation
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.olivia.weatherapp.domain.Result
 import com.olivia.weatherapp.domain.model.LocationModel
 import com.olivia.weatherapp.domain.repository.WeatherRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 /**
@@ -38,19 +40,17 @@ class WeatherViewModel @Inject constructor(
     private fun requestWeatherSearch() {
         viewModelScope.launch {
             _dataLoading.value = true
-            val response = withContext(Dispatchers.IO) {
-                try {
-                    repository.requestLocationSearch(location_query)
-                } catch (e: Exception) {
-                    null
+            repository.requestLocationSearch(location_query).collect { result ->
+                when (result) {
+                    is Result.Success -> {
+                        _weatherList.value = requestWeatherLocation(result.data)
+                        _dataLoading.value = false
+                    }
+                    is Result.Error -> {
+                        _dataLoading.value = false
+                    }
                 }
             }
-
-            if (!response.isNullOrEmpty()) {
-                _weatherList.value = requestWeatherLocation(response)
-            }
-
-            _dataLoading.value = false
         }
     }
 
