@@ -1,6 +1,6 @@
 # WeatherApp
 
-지역별 날씨를 보여주는 어플리케이션을 구현
+https://www.metaweather.com/api/ – MetaWeather의 Open API를 사용 지역별 날씨를 보여주는 어플리케이션을 구현
 
 ## Overview
 화면 구성
