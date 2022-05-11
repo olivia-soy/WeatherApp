@@ -6,6 +6,8 @@
 화면 구성
 
    - "se" 로 검색되는 지역 목록과 해당 지역의 오늘/내일 날씨 리스트 
+   - WeatherViewModel init 에서 Location Search api (지역 목록) -> Location api (각 지역 날씨 상세 정보) 를 호출 한 뒤 databinding 을 통해 화면에 표시 
+   - Swiperefreshlayout 사용하여 아래로 스와이프 동작이 있을 경우 api 재호출 화면 재구성 
 
 
 ## Description
@@ -19,6 +21,7 @@
 
 - UI
   - [Material Design](https://material.io/develop/android)
+  - [Swiperefreshlayout](https://developer.android.com/jetpack/androidx/releases/swiperefreshlayout?hl=ko)
   
 - [Architecture](https://developer.android.com/jetpack/arch/)
 
