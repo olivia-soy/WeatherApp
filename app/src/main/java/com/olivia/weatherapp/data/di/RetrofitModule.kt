@@ -1,4 +1,4 @@
-package com.olivia.weatherapp.presentation.di
+package com.olivia.weatherapp.data.di
 
 import com.olivia.weatherapp.data.retrofit.api.WeatherApi
 import dagger.Module
